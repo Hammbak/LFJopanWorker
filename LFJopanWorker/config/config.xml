@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- 운용테스트용 -->
+<!--<config>
+  <pathInfo>
+    <DataBackupFolder>A:\ADPRINT</DataBackupFolder>
+    <LocalUserUploadFloder>R:\</LocalUserUploadFloder>
+    <ServerUserUploadFolder>U:\</ServerUserUploadFolder>
+    <ServerSianUploadFolder>T:\</ServerSianUploadFolder>
+
+    <PdfOutFolder>D:\ADdata\PDF_OUT</PdfOutFolder>
+    <ProductOrderPdfFolder>G:\ADdata\PdfServer\PdfSource\ProductOrderPdf</ProductOrderPdfFolder>
+    <WorkFolder>D:\ADdataGlobalTest</WorkFolder>
+    <LogFolder>Log</LogFolder>
+    <CleanupPath>D:\ADdata\정리폴더</CleanupPath>
+    <RemakePath>D:\ADdata\재제작폴더</RemakePath>
+    <JopanTargetFolder>E:\Jopan\PDFServer\PDFImpose</JopanTargetFolder>
+    <JopanTargetCompany>ADPRINT,DUKIL,ALASKAINDIGO,ADSEAL</JopanTargetCompany>
+    <JopanWorkFolder>E:\Jopan\ImposerServer\Work</JopanWorkFolder>
+    <TreatedBackupPath Type="FTP">/GlobalTest/ADWORK/</TreatedBackupPath>
+    <OriginDataBackupPath>/ADdata/ADORG/</OriginDataBackupPath>
+    <PreDownloadPath>D:\PreDownload</PreDownloadPath>
+    <TestCase>False</TestCase>
+  </pathInfo>
+</config>-->
+
+<!-- 로컬 테스트용 -->
+<config>
+  <pathInfo>
+    <PdfOutFolder>G:\ADdata\PDF_OUT</PdfOutFolder>
+    <ProductOrderPdfFolder>D:\ADdata\PdfServer\PdfSource\ProductOrderPdf</ProductOrderPdfFolder>
+    <WorkFolder>G:\ADdata</WorkFolder>
+    <LogFolder>Log</LogFolder>
+    <CleanupPath>G:\ADdata\정리폴더</CleanupPath>
+    <RemakePath>G:\ADdata\재제작폴더</RemakePath>
+    <JopanTargetCompany>ADPRINT,DUKIL,ALASKAINDIGO,ADSEAL</JopanTargetCompany>
+    <TreatedBackupPath Type="FTP">/ADPRINT/ADWORK/</TreatedBackupPath>
+    <OriginDataBackupPath>/ADPRINT/ADORG/</OriginDataBackupPath>
+    <TestCase>true</TestCase>
+  </pathInfo>
+</config>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database">
+  <object id="ConfigInfo" type="AdprintPdfConverter.Model.ConfigInfo ,AdprintLib">
+    <property name="XmlPath" value="config\config.xml"></property>
+  </object>
+  <object id="LogWriter" type="ProductManager.Support.LogWriter ,AdprintLib">
+    <property name="ConfigInfo" ref="ConfigInfo"></property>
+  </object>
+
+  <object id="abstractServerFtpInfo" abstract="true">
+    <property value="192.168.1.90" name="Hostname"/>
+    <property value="jopanglobalTest" name="Username"/>
+    <property value="dutnfns!@#0" name="Password"/>
+    <property value="true" name="IsPassive"/>
+    <property name="Port" value="8889"></property>
+    <!--<property name="Hostname" value="222.122.209.250"></property>
+    <property name="Username" value="tqworker"></property>
+    <property name="Password" value="W0r!k_cs38"></property>
+    <property name="IsPassive" value="true"></property>-->
+  </object>
+  
+  <object id="abstractSGServerFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web">
+    <property value="192.168.1.90" name="Hostname"/>
+    <property value="jopanglobalTest" name="Username"/>
+    <property value="dutnfns!@#0" name="Password"/>
+    <property value="true" name="IsPassive"/>
+    <property name="Port" value="8889"></property>
+    <!--<property name="Hostname" value="222.122.209.240"></property>
+    <property name="Username" value="sgsian"></property>
+    <property name="Password" value="dG&amp;jd_3klAV"></property>
+    <property name="Port" value="5871"></property>
+    <property name="IsPassive" value="true"></property>-->
+  </object>
+
+  <object id="serverSGSianFtpManager" type=" Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="abstractSGServerFtpInfo"></property>
+  </object>
+
+  <object id="serverDataDownloadFtpManager" type=" Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="serverDataDownloadFtpInfo"></property>
+  </object>
+  <object id="serverDataDownloadFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web" parent="abstractServerFtpInfo">
+    <property name="Port" value="8888"></property>
+  </object>
+
+  <object id="serverDataUploadFtpManager" type=" Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="serverDataUploadFtpInfo"></property>
+  </object>
+  <object id="serverDataUploadFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web"  parent="abstractServerFtpInfo">
+    <property name="Port" value="9100"></property>
+  </object>
+
+  <object id="serverSianFtpManager" type=" Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="serverSianFtpInfo"></property>
+  </object>
+  <object id="serverSianFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web" parent="abstractServerFtpInfo">
+    <property name="Port" value="8889"></property>
+  </object>
+
+  <object id="originDataBackupFtpManager" type=" Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="originDataBackupFtpInfo"></property>
+  </object>
+  <object id="originDataBackupFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web">
+    <property name="Hostname" value="192.168.1.22"></property>
+    <property name="Username" value="addata"></property>
+    <property name="Password" value="ad!@#0"></property>
+    <property name="IsPassive" value="true"></property>
+    <property name="Port" value="9008"></property>
+  </object>
+
+  <object id="jopanServerFtpManager" type=" Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="jopanServerFtpInfo"></property>
+  </object>
+  <!--<object id="jopanServerFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web">
+    <property name="Hostname" value="211.63.134.252"></property>
+    <property name="Username" value="adprint"></property>
+    <property name="Password" value="dutnfns!@#00"></property>
+    <property name="IsPassive" value="true"></property>
+    <property name="Port" value="9004"></property>
+  </object>-->
+  <object id="jopanServerFtpInfo" type=" Yusurun.Web.FtpInfo ,Yusurun.Web">
+    <property name="Hostname" value="localhost"></property>
+    <property name="Username" value="user1"></property>
+    <property name="Password" value="adprint1"></property>
+    <property name="IsPassive" value="false"></property>
+    <property name="Port" value="21"></property>
+  </object>
+  
+  <object id="abstractWorker" abstract="true">
+    <property name="OrderDetailDao" ref="OrderDetailDao"></property>
+    <property name="CommonObjectDao" ref="CommonObjectDao"></property>
+    <property name="ConfigInfo" ref="ConfigInfo"></property>
+    <property name="LogWriter" ref="LogWriter"></property>
+  </object>
+
+  <object id="FileDownloadWorker" type=" Adprint.ProductManager.Worker.FileDownloadWorker ,AdprintLib" parent="abstractWorker">
+    <property name="ServerFtpManager" ref="serverDataDownloadFtpManager"></property>
+    <property name="BackupFtpManager" ref="originDataBackupFtpManager"></property>
+  </object>
+
+  <object id="HomeWorkCheckOkWorker" type=" Adprint.ProductManager.Worker.HomeWorkCheckOkWorker ,AdprintLib" parent="abstractWorker">
+    <property name="HomeWorkDao" ref="HomeWorkDao"></property>
+    <property name="HomeWorkService" ref="HomeWorkService"></property>
+  </object>
+
+  <object id="HomeWorkPdfServerWorker" type=" Adprint.ProductManager.Worker.HomeWorkPdfServerWorker ,AdprintLib" parent="abstractWorker">
+    <property name="HomeWorkDao" ref="HomeWorkDao"></property>
+  </object>
+
+  <object id="HomeWorkProblemWorker" type=" Adprint.ProductManager.Worker.HomeWorkProblemWorker ,AdprintLib" parent="abstractWorker">
+    <property name="HomeWorkDao" ref="HomeWorkDao"></property>
+    <property name="HomeWorkService" ref="HomeWorkService"></property>
+  </object>
+
+  <object id="FileInCleanWorker" type=" Adprint.ProductManager.Worker.FileInCleanWorker ,AdprintLib" parent="abstractWorker">
+  </object>
+
+  <object id="IndividualFileInWorker" type=" Adprint.ProductManager.Worker.IndividualFileInWorker ,AdprintLib" parent="abstractWorker">
+    <property name="FtpManager" ref="serverDataUploadFtpManager"></property>
+    <property name="BackupFtpManager" ref="originDataBackupFtpManager"></property>
+  </object>
+  <object id="CompanyFileInWorker" type=" Adprint.ProductManager.Worker.CompanyFileInWorker ,AdprintLib" parent="abstractWorker">
+    <property name="FtpManager" ref="serverDataUploadFtpManager"></property>
+    <property name="BackupFtpManager" ref="originDataBackupFtpManager"></property>
+  </object>
+  <object id="CheckOkCleanWorker" type=" Adprint.ProductManager.Worker.CheckOkCleanWorker ,AdprintLib" parent="abstractWorker">
+  </object>
+
+  <object id="PdfSourceCleanWorker" type=" Adprint.ProductManager.Worker.PdfSourceCleanWorker ,AdprintLib" parent="abstractWorker">
+  </object>
+  <object id="HandSianCopyWorker" type=" Adprint.ProductManager.Worker.HandSianCopyWorker ,AdprintLib" parent="abstractWorker">
+    <property name="ServerFtpManager" ref="serverSianFtpManager"></property>
+    <property name="BackupFtpManager" ref="originDataBackupFtpManager"></property>
+  </object>
+
+  <object id="AutoSianCopyWorker" type=" Adprint.ProductManager.Worker.AutoSianCopyWorker ,AdprintLib" parent="abstractWorker">
+    <property name="ServerFtpManager" ref="serverSianFtpManager"></property>
+    <property name="BackupFtpManager" ref="originDataBackupFtpManager"></property>
+  </object>
+
+  <object id="PdfOmittFindWorker" type=" Adprint.ProductManager.Worker.PdfOmittFindWorker ,AdprintLib" parent="abstractWorker">
+    <property name="MissingPdfDao" ref="MissingPdfDao"></property>
+  </object>
+
+  <object id="CheckOkWorker" type=" Adprint.ProductManager.Worker.CheckOkWorker ,AdprintLib" parent="abstractWorker">
+  </object>
+
+  <object id="PdfSourceWorker" type=" Adprint.ProductManager.Worker.PdfSourceWorker ,AdprintLib" parent="abstractWorker">
+    <property name="BackupFtpManager" ref="treatedDataBackupFtpManager"></property>
+    <property name="BackupFtpClientManager" ref="treatedDataBackupFtpManager2"></property>
+  </object>
+
+  <object id="ReorderItemWorker" type=" Adprint.ProductManager.Worker.ReorderItemWorker ,AdprintLib" parent="abstractWorker">
+    <property name="BackupFtpManager" ref="originDataBackupFtpManager"></property>
+    <property name="MakeRequestDetailDao" ref="MakeRequestDetailDao"></property>
+  </object>
+
+  <object id="treatedDataBackupFtpInfo" type="Yusurun.Web.FtpInfo ,Yusurun.Web">
+    <property name="Hostname" value="192.168.1.22"></property>
+    <property name="Username" value="addata"></property>
+    <property name="Password" value="ad!@#0"></property>
+    <property name="IsPassive" value="true"></property>
+    <property name="Port" value="9008"></property>
+  </object>
+
+  <object id="treatedDataBackupFtpManager" type="Yusurun.Web.FtpManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="treatedDataBackupFtpInfo"></property>
+  </object>
+
+  <object id="treatedDataBackupFtpManager2" type="Yusurun.Web.FtpClientManager ,Yusurun.Web">
+    <property name="FtpInfo" ref="treatedDataBackupFtpInfo"></property>
+  </object>
+
+  <object id="PageBackupWorker" type=" Adprint.ProductManager.Worker.PageBackupWorker ,AdprintLib" parent="abstractWorker">
+    <property name="BackupFtpManager" ref="treatedDataBackupFtpManager"></property>
+  </object>
+
+  <object id="InCheckingCleanWorker" type=" Adprint.ProductManager.Worker.InCheckingCleanWorker ,AdprintLib" parent="abstractWorker">
+    <property name="InCheckingDao" ref="InCheckingDao"></property>
+  </object>
+
+  <object id="RemakePdfMoveWorker" type=" Adprint.ProductManager.Worker.RemakePdfMoveWorker ,AdprintLib" parent="abstractWorker">
+    <property name="BackupFtpManager" ref="treatedDataBackupFtpManager"></property>
+    <property name="RemakeRequestDao" ref="RemakeRequestDao"></property>
+  </object>
+
+  <object id="LfJopanWorker" type=" Adprint.ProductManager.Worker.LfJopanWorker ,AdprintLib" parent="abstractWorker">
+    <property name="JopanDao" ref="JopanDao"></property>
+  </object>
+</objects>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database">  
+  <object id="HomeWorkService" type="Adprint.Service.HomeWork.HomeWorkService ,AdprintLib">
+    <property name="InCheckingDao" ref="InCheckingDao"></property>
+    <property name="DownloadLimitDao" ref="DownloadLimitDao"></property>
+    <property name="OrderDetailDao" ref="OrderDetailDao"></property>
+    <property name="UserDao" ref="UserDao"></property>
+  </object>
+
+</objects>

@@ -1,0 +1,578 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Yusurun.Common
+</name>
+</assembly>
+<members>
+<member name="T:Yusurun.My.Resources.Resources">
+<summary>
+  지역화된 문자열 등을 찾기 위한 강력한 형식의 리소스 클래스입니다.
+</summary>
+</member>
+<member name="P:Yusurun.My.Resources.Resources.ResourceManager">
+<summary>
+  이 클래스에서 사용하는 캐시된 ResourceManager 인스턴스를 반환합니다.
+</summary>
+</member>
+<member name="P:Yusurun.My.Resources.Resources.Culture">
+<summary>
+  이 강력한 형식의 리소스 클래스를 사용하여 모든 리소스 조회에 대한 현재 스레드의 CurrentUICulture
+  속성을 재정의합니다.
+</summary>
+</member>
+<member name="T:Yusurun.Spring.ControllerFactory.SpringControllerFactory">
+ <summary>
+ Controller Factory implementation for Spring.net
+ </summary>
+</member>
+<member name="M:Yusurun.Spring.ControllerFactory.SpringControllerFactory.Configure(Spring.Objects.Factory.IObjectFactory)">
+ <summary>
+ Configures the controller factory to use the 
+ given spring.net IObjectFactory for controller lookup.
+ If you call Configure multiple times, the last call will prevail.
+ </summary>
+ <param name="objectFactory">IObjectFactory instance to use for lookups.</param>
+</member>
+<member name="M:Yusurun.Spring.ControllerFactory.SpringControllerFactory.Configure(Spring.Context.IApplicationContext)">
+ <summary>
+ Configures the controller factory to use the
+ given spring.net IApplicationContext for controller
+ lookup. If you call Configure multiple times, the 
+ last call will prevail.
+ </summary>
+ <param name="ctx"></param>
+</member>
+<member name="T:Yusurun.Util.Basic.Tools.StringTool">
+ <summary>
+ Static class that exposes many string methods, 
+ useful for string evaluation and edits
+ </summary>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.IsStandardBool(System.String)">
+ <summary>
+ Evaluates whether passed-in string can be converted to a bool
+ </summary>
+ <param name="stream">string to check</param>
+ <returns>
+ bool indicating whether stream is a bool (0, 1, true/True, 
+ false/False)
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.IsFriendlyBool(System.String)">
+ <summary>
+ Evaluates whether string can can be COERCED to a bool
+ </summary>
+ <param name="stream">string to check</param>
+ <returns>
+ bool indicating whether argument is a standard or custom bool 
+ (0, 1, true/True, false/False) OR (y/Y, yes/Yes, n/N, no/NO) 
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.CoerceToBool(System.String)">
+ <summary>
+ Returns a bool conversion of the passed in string
+ </summary>
+ <param name="stream">string to convert/coerce</param>
+ <returns>
+ bool representation of passed-in string
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.IsEmpty(System.String)">
+ <summary>
+ Evaluates whether passed-in string contains any characters/
+ digits/symbols. Trims spaces before checking.
+ </summary>
+ <param name="stream">string to check</param>
+ <returns>
+ bool indicating whether argument is void of characters/
+ digits/symbols
+</returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.IsNumber(System.String)">
+ <summary>
+ Checks each character of the string for any character other 
+ than a digit, or a dollar sign or a percentage sign. If any
+ are found, returns false indicating that the stream is NOT
+ a number
+ </summary>
+ <param name="stream">
+ The stream of characters (string) to check
+ </param>
+ <returns>
+ True/False value indicating whether the string can be 
+ coerced to a number
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.IsDate(System.String)">
+ <summary>
+ Checks whether string can be coerced into a DateTime value
+ </summary>
+ <param name="stream">The string to check/// </param>
+ <returns>
+ bool indicating whether stream can be converted to a date
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.IsDouble(System.String)">
+ <summary>
+ Checks the string to see whether it is a number and if it is, 
+ then it checks whether there is a decimal in that number.
+ </summary>
+ <param name="stream">
+ The stream of characters (string) to check
+ </param>
+ <returns>
+ True/False value indicating whether the string is a
+ double---must be a number, and include a decimal 
+ in order to pass the test
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetDataType(System.String)">
+ <summary>
+ Checks string to see if it matches a TypeCode string and returns
+ that TypeCode, or returns TypeCode.Empty if there is no match
+ </summary>
+ <param name="dataTypeString">
+ String representation of a TypeCode (string, int, bool...)
+ </param>
+ <returns>TypeCode that maps to the dataTypeString</returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetDate(System.String)">
+ <summary>
+ Returns a date, as coerced from the string argument. Will raise
+ an error, if the string cannot be coerced 
+ ----so, use IsDate in this same class FIRST
+ </summary>
+ <param name="stream">string to get date value from</param>
+ <returns>a DateTime object</returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetInteger(System.String)">
+ <summary>
+ Returns an int, as coerced from the string argument. 
+ Will raise an error, if the string cannot be coerced
+ ----so, use IsNumber in this same class FIRST
+ </summary>
+ <param name="stream">string to get int value from</param>
+ <returns>an int object</returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetDouble(System.String)">
+ <summary>
+ Returns a double, as coerced from the string argument. 
+ Will raise an error, if the string cannot be coerced
+ ----so, use IsNumber in this same class FIRST
+ </summary>
+ <param name="stream">string to get double value from</param>
+ <returns>a double object</returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.Clean(System.String,System.Boolean,System.Boolean,System.Boolean,System.String)">
+ <summary>
+ Iterates thru a string, and removes anything set to clean.
+ Except---Does NOT remove anything in exceptionsToAllow
+ </summary>
+ <param name="stream">
+ The string to clean</param>
+ <returns>
+ The same string, missing all elements that were set to clean
+ (except when a character was listed in exceptionsToAllow)
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetFileNameFromPath(System.String,System.Boolean)">
+ <summary>
+ Parses a file system or url path, and locates the file name
+ </summary>
+ <param name="fullPath">
+ String indicating a file system or url path to a file
+ </param>
+ <param name="includeFileExtension">
+ Whether to return file extension in addition to file name
+ </param>
+ <returns>
+ File name, if found, and extension if requested, and located
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetFolderPath(System.String)">
+ <summary>
+ Parses a url or file stream string, to get and return the 
+ path portion (sans the file name and extension)
+ </summary>
+ <param name="fullPath">
+ A string indicating a file system path or a url. Can 
+ contain a file name/extension.
+ </param>
+ <returns>
+ The original path minus the file name and extension, 
+ if it had existed, with no extension will return
+ the original string, plus an optional slash
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetStringBetween(System.String,System.String,System.String)">
+ <summary>
+ Useful to pinpoint exact string between whatever 
+ characters/string you wish to grab text from
+ </summary>
+ <param name="stream">
+ string from which to cull subtext from
+ </param>
+ <param name="from">
+ string that precedes the text you are looking for
+ </param>
+ <param name="to">
+ string that follows the text you are looking for
+ </param>
+ <returns>
+ The string between point x and point y
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.LeftOf(System.String,System.String)">
+ <summary>
+ Will return the text to the LEFT of indicated substring 
+ </summary>
+ <param name="stream">
+ string from which to cull a portion of text
+ </param>
+ <param name="stringToStopAt">
+ string that indicates what char or string to stop at
+ </param>
+ <returns>
+ The string to the left of point x (stringToStopAt)
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.RightOf(System.String,System.String)">
+ <summary>
+ Will return the text to the RIGHT of whatever substring you indicate
+ </summary>
+ <param name="stream">
+ string from which to cull a portion of text
+ </param>
+ <param name="stringToStartAfter">
+ string that indicates what char or string to start after
+ </param>
+ <returns>
+ The string to the right of point x (stringToStartAfter)
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetEachFieldValue(System.String,System.String,System.String)">
+ <summary>
+ Searches a string for every single instance of the passed-in
+ field delimiters, and returns all the values between those
+ delimiters, as a List object
+ </summary>
+ <param name="streamToSearch">string to search</param>
+ <param name="leftFieldDelimiter">string to start at</param>
+ <param name="rightFieldDelimiter">string to stop at</param>
+ <returns>A List object of strings</returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetExactPartOfString(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
+ <summary>
+ Instructions on using arguments:
+ Set firstInstance = true, to stop at first instance of locateChar
+ If firstInstance = false, then the LAST instance of locateChar will be used
+ Set fromLeft = true, to return string from the left of locateChar
+ If fromLeft = false, then the string from the right of locateChar 
+ will be returned.
+ Set caseSensitive to true/false for case-sensitivity
+ EXAMPLES:
+ GetPartOfString('aunt jemima', 'm', 'true', 'true')
+ will return 'aunt je'
+ GetPartOfString('aunt jemima', 'm', 'true', 'false')
+ </summary>
+ <param name="stream">
+ The string from which to cull a portion of text
+ </param>
+ <param name="locateChar">
+ The character or string that is the marker
+ for which to grab text (from left or right depending
+ on other argument)
+ </param>
+ <param name="firstInstance">
+ Whether or not to get the substring from the first
+ encountered instance of the locateChar argument
+ </param>
+ <param name="fromLeft">
+ Whether to search from the left. If set to false,
+ then the string will be searched from the right.
+ </param>
+ <param name="caseSensitive">
+ Whether to consider case (upper/lower)
+ </param>
+ <returns>
+ A portion of the input string, based on ensuing arguments
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetKeyCharCount(System.String,System.String)">
+ <summary>
+ Returns the number of times, that the key character is found 
+ in the stream string
+ </summary>
+ <param name="stream">
+ string in which to locate key character
+ </param>
+ <param name="keyChar">
+ key character: the string or char to count inside the stream
+ </param>
+ <returns>
+ The number of times the string or char was located
+ </returns>
+</member>
+<member name="M:Yusurun.Util.Basic.Tools.StringTool.GetCharPosition(System.String,System.String,System.Int32)">
+ <summary>
+ Is CASE-SENSITIVE
+ Returns x position of sChar in sstream, where x = iCharInst. 
+ If: getCharPos('pineapple', 'p', 3) Then: 6 is returned
+ </summary>
+ <param name="stream">
+ string in which to pinpoint the character (or string) position
+ </param>
+ <param name="charToPinpoint">character or string to locate</param>
+ <param name="whichCharInstance">
+ Number indicating WHICH instance of the character/string to locate
+ </param>
+ <returns>
+ The index of the character or string found inside the input string.
+ Will return -1 if the string/character is not found, or if the 
+ instance number is not found
+ </returns>
+</member>
+<member name="M:Yusurun.Util.EmailHandler.Emailer.SendMessage(System.String,System.String,System.String,System.String)">
+ <summary>
+ Transmit an email message to a recipient without
+ any attachments
+ </summary>
+ <param name="sendTo">Recipient Email Address</param>
+ <param name="sendFrom">Sender Email Address</param>
+ <param name="sendSubject">Subject Line Describing Message</param>
+ <param name="mySendMessage">The Email Message Body</param>
+ <returns>Status Message as String</returns>
+</member>
+<member name="M:Yusurun.Util.EmailHandler.Emailer.SendMessageWithAttachment(System.String,System.String,System.String,System.String,System.Collections.ArrayList)">
+ <returns>Status Message as String</returns>
+</member>
+<member name="T:Yusurun.Util.FTPclient">
+ <summary>
+ A wrapper class for .NET 2.0 FTP
+ </summary>
+ <remarks>
+ This class does not hold open an FTP connection but 
+ instead is stateless: for each FTP request it 
+ connects, performs the request and disconnects.
+ </remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.#ctor">
+ <summary>
+ Blank constructor
+ </summary>
+ <remarks>Hostname, username and password must be set manually</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.#ctor(System.String)">
+ <summary>
+ Constructor just taking the hostname
+ </summary>
+ <param name="Hostname">in either ftp://ftp.host.com or ftp.host.com form</param>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.#ctor(System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ Constructor taking hostname, username and password
+ </summary>
+ <param name="Hostname">in either ftp://ftp.host.com or ftp.host.com form</param>
+ <param name="Username">Leave blank to use 'anonymous' but set password to your email</param>
+ <param name="Password"></param>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.ListDirectory(System.String)">
+ <summary>
+ Return a simple directory listing
+ </summary>
+ <param name="directory">Directory to list, e.g. /pub</param>
+ <returns>A list of filenames and directories as a List(of String)</returns>
+ <remarks>For a detailed directory listing, use ListDirectoryDetail</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.ListDirectoryDetail(System.String)">
+ <summary>
+ Return a detailed directory listing
+ </summary>
+ <param name="directory">Directory to list, e.g. /pub/etc</param>
+ <returns>An FTPDirectory object</returns>
+</member>
+<member name="M:Yusurun.Util.FTPclient.Upload(System.String,System.String)">
+ <summary>
+ Copy a local file to the FTP server
+ </summary>
+ <param name="localFilename">Full path of the local file</param>
+ <param name="targetFilename">Target filename, if required</param>
+ <returns></returns>
+ <remarks>If the target filename is blank, the source filename is used
+ (assumes current directory). Otherwise use a filename to specify a name
+ or a full path and filename if required.</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.Upload(System.IO.FileInfo,System.String)">
+ <summary>
+ Upload a local file to the FTP server
+ </summary>
+ <param name="fi">Source file</param>
+ <param name="targetFilename">Target filename (optional)</param>
+ <returns></returns>
+</member>
+<member name="M:Yusurun.Util.FTPclient.Download(System.String,System.String,System.Boolean)">
+ <summary>
+ Copy a file from FTP server to local
+ </summary>
+ <param name="sourceFilename">Target filename, if required</param>
+ <param name="localFilename">Full path of the local file</param>
+ <returns></returns>
+ <remarks>Target can be blank (use same filename), or just a filename
+ (assumes current directory) or a full path and filename</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.FtpDelete(System.String)">
+ <summary>
+ Delete remote file
+ </summary>
+ <param name="filename">filename or full path</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.FtpFileExists(System.String)">
+ <summary>
+ Determine if file exists on remote FTP site
+ </summary>
+ <param name="filename">Filename (for current dir) or full path</param>
+ <returns></returns>
+ <remarks>Note this only works for files</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.GetFileSize(System.String)">
+ <summary>
+ Determine size of remote file
+ </summary>
+ <param name="filename"></param>
+ <returns></returns>
+ <remarks>Throws an exception if file does not exist</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.GetCredentials">
+ <summary>
+ Get the credentials from username/password
+ </summary>
+</member>
+<member name="M:Yusurun.Util.FTPclient.GetFullPath(System.String)">
+ <summary>
+ returns a full path using CurrentDirectory for a relative file reference
+ </summary>
+</member>
+<member name="M:Yusurun.Util.FTPclient.AdjustDir(System.String)">
+ <summary>
+ Amend an FTP path so that it always starts with /
+ </summary>
+ <param name="path">Path to adjust</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.GetStringResponse(System.Net.FtpWebRequest)">
+ <summary>
+ Obtains a response stream as a string
+ </summary>
+ <param name="ftp">current FTP request</param>
+ <returns>String containing response</returns>
+ <remarks>FTP servers typically return strings with CR and
+ not CRLF. Use respons.Replace(vbCR, vbCRLF) to convert
+ to an MSDOS string</remarks>
+</member>
+<member name="M:Yusurun.Util.FTPclient.GetSize(System.Net.FtpWebRequest)">
+ <summary>
+ Gets the size of an FTP request
+ </summary>
+ <param name="ftp"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:Yusurun.Util.FTPclient.Hostname">
+ <summary>
+ Hostname
+ </summary>
+ <value></value>
+ <remarks>Hostname can be in either the full URL format
+ ftp://ftp.myhost.com or just ftp.myhost.com
+ </remarks>
+</member>
+<member name="P:Yusurun.Util.FTPclient.Username">
+ <summary>
+ Username property
+ </summary>
+ <value></value>
+ <remarks>Can be left blank, in which case 'anonymous' is returned</remarks>
+</member>
+<member name="F:Yusurun.Util.FTPclient._currentDirectory">
+ <summary>
+ The CurrentDirectory value
+ </summary>
+ <remarks>Defaults to the root '/'</remarks>
+</member>
+<member name="T:Yusurun.Util.FTPfileInfo">
+ <summary>
+ Represents a file or directory entry from an FTP listing
+ </summary>
+ <remarks>
+ This class is used to parse the results from a detailed
+ directory list from FTP. It supports most formats of
+ </remarks>
+</member>
+<member name="T:Yusurun.Util.FTPfileInfo.DirectoryEntryTypes">
+ <summary>
+ Identifies entry as either File or Directory
+ </summary>
+</member>
+<member name="M:Yusurun.Util.FTPfileInfo.#ctor(System.String,System.String)">
+ <summary>
+ Constructor taking a directory listing line and path
+ </summary>
+ <param name="line">The line returned from the detailed directory list</param>
+ <param name="path">Path of the directory</param>
+ <remarks></remarks>
+</member>
+<member name="F:Yusurun.Util.FTPfileInfo._ParseFormats">
+ <summary>
+ List of REGEX formats for different FTP server listing formats
+ </summary>
+ <remarks>
+ The first three are various UNIX/LINUX formats, fourth is for MS FTP
+ in detailed mode and the last for MS FTP in 'DOS' mode.
+ I wish VB.NET had support for Const arrays like C# but there you go
+ </remarks>
+</member>
+<member name="T:Yusurun.Util.FTPdirectory">
+ <summary>
+ Stores a list of files and directories from an FTP result
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.Util.FTPdirectory.#ctor(System.String,System.String)">
+ <summary>
+ Constructor: create list from a (detailed) directory string
+ </summary>
+ <param name="dir">directory listing string</param>
+ <param name="path"></param>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.Util.FTPdirectory.GetFiles(System.String)">
+ <summary>
+ Filter out only files from directory listing
+ </summary>
+ <param name="ext">optional file extension filter</param>
+ <returns>FTPdirectory listing</returns>
+</member>
+<member name="M:Yusurun.Util.FTPdirectory.GetDirectories">
+ <summary>
+ Returns a list of only subdirectories
+ </summary>
+ <returns>FTPDirectory list</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Yusurun.ValidateUtil.ValidateEmailAddress(System.String)">
+ <summary>
+ Confirm that an email address is valid
+ in format
+ </summary>
+ <param name="emailAddress">Full email address to validate</param>
+ <returns>True if email address is valid</returns>
+</member>
+</members>
+</doc>

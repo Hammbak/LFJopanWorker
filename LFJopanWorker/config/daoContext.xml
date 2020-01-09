@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database">
+  <object id="DownloadLimitDao" type="Adprint.DownloadLimit.Dao.DownloadLimitDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="DownloadLimitCallbackDao"></property>
+  </object>
+  <object id="DownloadLimitCallbackDao" type="Adprint.DownloadLimit.Dao.DownloadLimitCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="HomeWorkDao" type="Adprint.HomeWork.Dao.HomeWorkDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="HomeWorkCallbackDao"></property>
+  </object>
+  <object id="HomeWorkCallbackDao" type="Adprint.HomeWork.Dao.HomeWorkCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="InCheckingDao" type="Adprint.InChecking.Dao.InCheckingDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="InCheckingCallbackDao"></property>
+  </object>
+  <object id="InCheckingCallbackDao" type="Adprint.InChecking.Dao.InCheckingCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="JopanDao" type="Adprint.Jopan.Dao.JopanDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+
+  <object id="MakeRequestDetailDao" type="Adprint.MakeRequestDetail.Dao.MakeRequestDetailDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="MakeRequestDetailCallbackDao"></property>
+  </object>
+  <object id="MakeRequestDetailCallbackDao" type="Adprint.MakeRequestDetail.Dao.MakeRequestDetailCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="MissingPdfDao" type="Adprint.MissingPdf.Dao.MissingPdfDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="MissingPdfCallbackDao"></property>
+  </object>
+  <object id="MissingPdfCallbackDao" type="Adprint.MissingPdf.Dao.MissingPdfCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="OrderDetailDao" type="Adprint.OrderDetail.Dao.OrderDetailDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="WorkCalendarDao" ref="WorkCalendarDao"></property>
+  </object>
+  <object id="RemakeRequestDao" type="Adprint.RemakeRequest.Dao.RemakeRequestDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="RemakeRequestCallbackDao"></property>
+  </object>
+  <object id="RemakeRequestCallbackDao" type="Adprint.RemakeRequest.Dao.RemakeRequestCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="UserDao" type="Adprint.User.Dao.UserDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="UserCallbackDao"></property>
+  </object>
+  <object id="UserCallbackDao" type="Adprint.User.Dao.UserCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  <object id="WorkCalendarDao" type="Adprint.WorkCalendar.Dao.WorkCalendarDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+
+  <object id="CommonObjectDao" type="JangBoGo.Info.Object.CommonObjectDao ,JangBoGo">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+  
+</objects>

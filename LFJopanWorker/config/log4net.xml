@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<log4net>
+  <appender name="TqLogAppender" type="JangBoGo.Logger.log4net.Appender.TqoonLogAdoNetAppender, JangBoGo">
+    <bufferSize value="0" />
+    <connectionString value="SERVER=192.168.1.51;DATABASE=TqoonLog;USER ID=sa;PASSWORD=gT$2V9&lt;hB_&amp;" />
+  </appender>
+  <logger name="TqLogger">
+    <level value="ALL" />
+    <appender-ref ref="TqLogAppender" />
+  </logger>
+  <root>
+    <level value="ALL" />
+  </root>
+</log4net>

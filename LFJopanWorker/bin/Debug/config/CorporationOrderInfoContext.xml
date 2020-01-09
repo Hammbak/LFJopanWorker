@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<objects xmlns="http://www.springframework.net" xmlns:db="http://www.springframework.net/database">
+  <object id="CorporationOrderInfoDao" type="Adprint.CorporationOrderInfo.Dao.CorporationOrderInfoDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+    <property name="CallbackDao" ref="CorporationOrderInfoCallbackDao"></property>
+  </object>
+  <object id="CorporationOrderInfoCallbackDao" type="Adprint.CorporationOrderInfo.Dao.CorporationOrderInfoCallbackDao ,AdprintLib">
+    <property name="AdoTemplate" ref="adoTemplate"></property>
+  </object>
+</objects>

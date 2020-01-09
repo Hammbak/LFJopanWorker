@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database"
+         xmlns:tx="http://www.springframework.net/tx">
+
+  <!--<DB_INFO_WEB>SERVER=222.122.209.252\TQOONJPN,2857;DATABASE=adPrintNewDb;USER ID=batch;PASSWORD=b!atch123Tqoon</DB_INFO_WEB>-->
+  <!-- 운영 -->
+  <db:provider id="DbProvider" provider="System.Data.SqlClient" connectionString="SERVER=222.122.209.252\TQOONJPN,2857;DATABASE=adPrintNewDB;USER ID=batch; PASSWORD=b!atch123Tqoon" />
+  <db:provider id="DbProvider_jopan" provider="System.Data.SqlClient" connectionString="SERVER=222.122.209.230\ATW,3529 ;DATABASE=Jopan;USER ID=Jopanist; PASSWORD=Hce%k!9df#b&lt;"/>
+  <!-- 로컬 -->
+  <db:provider id="DbProvider" provider="System.Data.SqlClient" connectionString="SERVER=192.168.1.51 ;DATABASE=adPrintNewDB;USER ID=sa; PASSWORD=gT$2V9&lt;hB_&amp;" />
+  <db:provider id="DbProvider_jopan" provider="System.Data.SqlClient" connectionString="SERVER=192.168.1.51 ;DATABASE=Jopan;USER ID=sa; PASSWORD=gT$2V9&lt;hB_&amp;"/>
+
+  <object id="adoTemplate" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider" />
+    <property name="DataReaderWrapperType" value="JangBoGo.Data.Support.YsrNullMappingDataReader, JangBoGo" />
+    <property name="CommandTimeout" value="60" />
+  </object>
+  
+  <object id="AdoTemplate_Jopan" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider_jopan" />
+    <property name="DataReaderWrapperType" value="JangBoGo.Data.Support.YsrNullMappingDataReader, JangBoGo" />
+    <property name="CommandTimeout" value="60" />
+  </object>
+  
+  <object id="transactionManager" type="Spring.Data.Core.AdoPlatformTransactionManager, Spring.Data">
+    <property name="DbProvider" ref="DbProvider" />
+  </object>
+
+  <tx:attribute-driven />
+</objects>

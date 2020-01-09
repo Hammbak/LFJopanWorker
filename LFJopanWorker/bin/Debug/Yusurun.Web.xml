@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yusurun.Web</name>
+    </assembly>
+    <members>
+        <member name="M:Yusurun.Web.Util.WinFormWebBrowserControlUtil.isPage(System.Windows.Forms.WebBrowserDocumentCompletedEventArgs,System.Windows.Forms.WebBrowser,System.String)">
+            <summary>
+            DocumentCompleted 이벤트 내에서 원하는 페이지 도착시, 한번만 이벤트 발생
+            </summary>
+        </member>
+    </members>
+</doc>
